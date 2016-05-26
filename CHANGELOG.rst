@@ -2,8 +2,8 @@
 Changelog for package astra_camera
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2016-05-26)
+------------------
 * removing dependency which was internalilzed
 * Contributors: Tully Foote
 
