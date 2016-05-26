@@ -5,6 +5,20 @@ find_package(catkin REQUIRED camera_info_manager dynamic_reconfigure image_trans
 
 find_package(Boost REQUIRED COMPONENTS system thread)
 
+include(ExternalProject)
+
+ExternalProject_Add(astra_openni2
+  PREFIX astra_openni2
+  # SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/astra_openni2/OpenNI2
+  GIT_REPOSITORY https://github.com/tfoote/OpenNI2.git
+  GIT_TAG orbbec_arm64
+  CONFIGURE_COMMAND echo "no need to configure"
+  #${CMAKE_CURRENT_SOURCE_DIR}/libantlr/configure --prefix=<INSTALL_DIR>
+  BUILD_IN_SOURCE 1
+  BUILD_COMMAND make release
+  INSTALL_DIR openni2
+  INSTALL_COMMAND tar -xjf <SOURCE_DIR>/Packaging/Final/OpenNI-Linux-x64-2.3.tar.bz2 -C <INSTALL_DIR> --strip 1
+)
 
 #MACHINE = $(shell uname -m)
 execute_process(COMMAND uname -m  OUTPUT_VARIABLE  MACHINES )
@@ -54,6 +68,7 @@ include_directories(include
                     ${catkin_INCLUDE_DIRS}
                     ${Boost_INCLUDE_DIRS}
                     ${CMAKE_CURRENT_SOURCE_DIR}/include/openni2
+                    ${CMAKE_BUILD_DIRECTORY}/openni2/Include
                     )
 
 
@@ -122,6 +137,3 @@ install(FILES astra_nodelets.xml
 #									COMMAND  cp -R ${CMAKE_CURRENT_SOURCE_DIR}/include/openni2_redist/OpenNI.ini  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/
 #									COMMAND  cp -R ${CMAKE_CURRENT_SOURCE_DIR}/include/openni2_redist/org.openni.jar  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/
 #)
-
-
-
