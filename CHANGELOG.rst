@@ -2,8 +2,8 @@
 Changelog for package astra_camera
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.4 (2016-05-27)
+------------------
 * add libusb-dev as a build dependency
 * Contributors: Tully Foote
 
