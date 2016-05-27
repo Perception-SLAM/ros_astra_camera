@@ -2,8 +2,8 @@
 Changelog for package astra_camera
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.3 (2016-05-26)
+------------------
 * Adding build dependency on libudev-dev
 * Contributors: Tully Foote
 
